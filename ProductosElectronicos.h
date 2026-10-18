@@ -9,7 +9,6 @@ using namespace std;
 class ProductosElectronicos : public Productos {
 public:
     ProductosElectronicos(double precio, string codigo, string marca, string nombre, int stock = 0);
-
     string getEncender() const;
     string getApagar() const;
     string getReiniciar() const;

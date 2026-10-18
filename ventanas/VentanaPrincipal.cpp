@@ -219,64 +219,12 @@ QWidget *VentanaPrincipal::crearInicio()
     layout->addWidget(descripcion);
     layout->addSpacing(8);
 
-    QHBoxLayout *tarjetas = new QHBoxLayout;
-    tarjetas->setSpacing(14);
-
-    const QStringList nombres = {
-        "Productos", "Clientes", "Personal"
-    };
-
-    const QStringList detalles = {
-        "Catalogo electronico",
-        "Gestion de clientes",
-        "Empleados y proveedores"
-    };
-
-    const QStringList numeros = {"01", "02", "03"};
-
-    for (int i = 0; i < nombres.size(); ++i) {
-        QFrame *tarjeta = new QFrame;
-        tarjeta->setObjectName("tarjeta");
-        tarjeta->setMinimumHeight(145);
-
-        QVBoxLayout *contenido = new QVBoxLayout(tarjeta);
-        contenido->setContentsMargins(17, 17, 17, 17);
-
-        QLabel *numero = new QLabel(numeros[i]);
-        numero->setObjectName("numeroTarjeta");
-
-        QLabel *nombre = new QLabel(nombres[i]);
-        nombre->setObjectName("tituloTarjeta");
-
-        QLabel *detalle = new QLabel(detalles[i]);
-        detalle->setObjectName("descripcion");
-        detalle->setWordWrap(true);
-
-        contenido->addWidget(numero);
-        contenido->addWidget(nombre);
-        contenido->addWidget(detalle);
-        contenido->addStretch();
-
-        tarjetas->addWidget(tarjeta);
-    }
-
-    layout->addLayout(tarjetas);
-    layout->addSpacing(12);
-
     QLabel *subtitulo = new QLabel("RECOMENDADOS");
     subtitulo->setObjectName("etiquetaRosa");
     layout->addWidget(subtitulo);
 
     layout->addWidget(crearRecomendados());
 
-    QLabel *nota = new QLabel(
-        "Selecciona una seccion del menu lateral para comenzar. "
-
-    );
-    nota->setObjectName("descripcion");
-    nota->setWordWrap(true);
-
-    layout->addWidget(nota);
     layout->addStretch();
 
     return pagina;

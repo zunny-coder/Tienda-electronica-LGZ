@@ -2,7 +2,7 @@
 
 Celular::Celular(int codigo, string nombre, double precio, int stock,
                  string procesador, int memoriaRAM, string modelo, string almacenamiento)
-    : ProductosElectronicos(precio, to_string(codigo), "Marca", nombre), procesador(procesador), 
+    : ProductosElectronicos(precio, to_string(codigo), "Marca", nombre, stock), procesador(procesador), 
     memoriaRAM(memoriaRAM), modelo(modelo), almacenamiento(almacenamiento) {}
 
 string Celular::getModelo() const {

@@ -2,7 +2,7 @@
 
 Smartwatches::Smartwatches(int codigo, string nombre, double precio, int stock, string tipo, 
     int almacenamiento, bool gps, int duracionBateria, string sistemaOperativo)
-    : ProductosElectronicos(precio, to_string(codigo), "Marca", nombre), 
+    : ProductosElectronicos(precio, to_string(codigo), "Marca", nombre, stock), 
         tipo(tipo), almacenamiento(almacenamiento), gps(gps), 
         duracionBateria(duracionBateria), sistemaOperativo(sistemaOperativo) {}
 

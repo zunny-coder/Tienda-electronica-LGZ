@@ -3,8 +3,10 @@
 Computadora::Computadora(int codigo, string nombre, double precio, int stock,
                         string procesador, int memoriaRAM, int almacenamiento, string puerto,
                         string pantalla, string tarjetaGrafica, string sistemaOperativo)
-    : ProductosElectronicos(precio, to_string(codigo), "Marca", nombre), procesador(procesador), 
-        memoriaRAM(memoriaRAM) {}
+    : ProductosElectronicos(precio, to_string(codigo), "Marca", nombre, stock),
+      procesador(procesador), memoriaRAM(memoriaRAM), almacenamiento(almacenamiento),
+      puerto(puerto), pantalla(pantalla), tarjetaGrafica(tarjetaGrafica),
+      sistemaOperativo(sistemaOperativo) {}
 
 string Computadora::getTipo() const {
     return "Computadora";

@@ -1,7 +1,7 @@
 #include "Impresora.h"
 
 Impresora::Impresora(int codigo, string nombre, double precio, int stock, string tipo, int velocidadImpresion, int nivelTinta, int cantidadPapel, string configuracion, bool color)
-    : ProductosElectronicos(precio, to_string(codigo), "Marca", nombre), 
+    : ProductosElectronicos(precio, to_string(codigo), "Marca", nombre, stock), 
         tipo(tipo), velocidadImpresion(velocidadImpresion), nivelTinta(nivelTinta), 
         cantidadPapel(cantidadPapel), configuracion(configuracion), color(color) {}
 

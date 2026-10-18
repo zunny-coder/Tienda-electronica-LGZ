@@ -8,6 +8,9 @@
 #include "Celular.h"
 #include "cliente.h"
 #include "empleado.h"
+#include "proveedor.h"
+#include "Impresora.h"
+#include "Smartwatches.h"
 
 int main(int argc, char *argv[])
 {
@@ -58,7 +61,16 @@ int main(int argc, char *argv[])
         new Celular(3009, "Motorola Edge 40", 1699.0, 9, "Dimensity 8020", 8, "Edge 40", "256GB"),
         new Celular(3010, "Honor 90 Lite", 849.0, 14, "Dimensity 6020", 8, "90 Lite", "256GB"),
     
-    
+        // Impresoras
+                new Impresora(4001, "Epson EcoTank L3250", 899.0, 10, "Inyeccion de tinta", 10, 100, 100, "WiFi", true),
+        new Impresora(4002, "HP Smart Tank 580", 949.0, 8, "Inyeccion de tinta", 12, 100, 100, "WiFi", true),
+        new Impresora(4003, "Canon Pixma G3110", 799.0, 12, "Inyeccion de tinta", 9, 100, 100, "WiFi", true),
+        new Impresora(4004, "Brother DCP-T520W", 859.0, 6, "Inyeccion de tinta", 11, 100, 100, "WiFi", true),
+
+        new Smartwatches(5001, "Apple Watch SE", 1299.0, 9, "Deportivo", 32, true, 18, "watchOS"),
+        new Smartwatches(5002, "Samsung Galaxy Watch 6", 1199.0, 11, "Deportivo", 16, true, 40, "Wear OS"),
+        new Smartwatches(5003, "Huawei Watch Fit 3", 599.0, 14, "Fitness", 4, true, 240, "HarmonyOS"),
+        new Smartwatches(5004, "Xiaomi Watch 2", 549.0, 16, "Casual", 32, true, 65, "Wear OS")
      
     };
 
@@ -78,15 +90,20 @@ int main(int argc, char *argv[])
     };
 
     std::vector<Empleado*> empleados = {
-        new Empleado("71162420", "Zunny Mamani", "917058536", "zunnymamani@est.unap.edu.pe", 13000.0, "Lun-Vie 11am-4pm", "Gerente"),
+        new Empleado("71162420", "Zunny Mamani", "917058536", "zunnymamani@est.unap.edu.pe", 7000.0, "Lun-Vie 11am-4pm", "Gerente"),
         new Empleado("73581649", "Lourdes Cabana", "963447086", "lourdescabana@est.unap.edu.pe", 5000.0, "Lun-Vie 8am-4pm", "Gerente"),
         new Empleado("61152643", "Georgina Martinez", "950505307", "georginamar60tinez@est.unap.edu.pe", 5000.0, "Lun-Vie 8am-5pm", "Gerente"),
-        new Empleado("60908881", "Crhristian Cutipa", "910514666", "christiancutipa@gmail.com", 10.0, "Lun-Dom 8am-9pm", "Limpieza")
+        new Empleado("60908881", "Crhristian Cutipa", "910514666", "christiancutipa@gmail.com", 1300.0, "Lun-Dom 8am-9pm", "Limpieza")
+    };
+    std::vector<Proveedor*> proveedores = {
+        new Proveedor("62878901", "TechSupply" , "987561209", "techsupply@gmail.com", "RUC4568890", 100, "PROV001"),
+        new Proveedor("62878902", "ElectroWorld" , "987561210", "electroworld@gmail.com", "RUC4568891", 150, "PROV002")
     };
 
     ventana.cargarProductos(productos);
     ventana.cargarClientes(clientes);
     ventana.cargarEmpleados(empleados);
+    ventana.cargarProveedores(proveedores);
 
     ventana.show();
 
