@@ -1,7 +1,7 @@
 #ifndef FUNDA_H
 #define FUNDA_H
 
-#include "Accesorio.h"
+#include "accesorios.h"
 
 class Funda : public Accesorio {
 public:

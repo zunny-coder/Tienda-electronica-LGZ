@@ -2,10 +2,10 @@
 #define ACCESORIO_H
 
 #include <string>
-#include "Producto.h"
+#include "Productos.h"
 using namespace std;
 
-class Accesorio : public Producto {
+class Accesorio : public Productos {
 private:
     string tamano;
     int cantidad;
@@ -22,4 +22,4 @@ public:
     void Vender();
 };
 
-#endif
+#endif 

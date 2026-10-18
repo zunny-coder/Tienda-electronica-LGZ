@@ -1,0 +1,8 @@
+<RCC>
+  <qresource prefix="/">
+    <file alias="recursos/imagenes/celular.jpg">D:/Tienda-Electronica-LGZ/recursos/imagenes/celular.jpg</file>
+    <file alias="recursos/imagenes/computadora.jpg">D:/Tienda-Electronica-LGZ/recursos/imagenes/computadora.jpg</file>
+    <file alias="recursos/imagenes/laptop.jpg">D:/Tienda-Electronica-LGZ/recursos/imagenes/laptop.jpg</file>
+  </qresource>
+</RCC>
+

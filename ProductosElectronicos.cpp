@@ -1,8 +1,8 @@
 #include "ProductosElectronicos.h"
 using namespace std;
 
-ProductosElectronicos::ProductosElectronicos(double precio, string codigo, string marca, string nombre)
-    : Productos (0, nombre, precio, 0, marca, "", "", 0, "", 0) {}
+ProductosElectronicos::ProductosElectronicos(double precio, string codigo, string marca, string nombre, int stock)
+    : Productos(stoi(codigo), nombre, precio, stock, marca, "", "", 0, "", 0) {}
 
 string ProductosElectronicos::getEncender() const {
     cout << "Encendiendo dispositivo..." << endl;

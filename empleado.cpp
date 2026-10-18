@@ -56,12 +56,12 @@ void Empleado::actualizarStock() {
     cout << "Stock del producto " << codigo << " actualizado a " << nuevoStock << endl;
 }
 
-void Empleado::mostrarDatos() const {
+    void Empleado::mostrarDatos() const {
     cout << "--- EMPLEADO ---" << endl;
-    cout << "DNI: " << dni << endl;
-    cout << "Nombre: " << nombre << endl;
-    cout << "Telefono: " << telefono << endl;
-    cout << "Correo: " << correo << endl;
+    cout << "DNI: " << getDni() << endl;
+    cout << "Nombre: " << getNombre() << endl;
+    cout << "Telefono: " << getTelefono() << endl;
+    cout << "Correo: " << getCorreo() << endl;
     cout << "Sueldo: " << sueldo << endl;
     cout << "Horario: " << horario << endl;
     cout << "Cargo: " << cargo << endl;

@@ -7,14 +7,8 @@
 using namespace std;
 
 class ProductosElectronicos : public Productos {
-private:
-    double precio;
-    string codigo;
-    string marca;
-    string nombre;
-
-    public:
-    ProductosElectronicos(double precio, string codigo, string marca, string nombre);
+public:
+    ProductosElectronicos(double precio, string codigo, string marca, string nombre, int stock = 0);
 
     string getEncender() const;
     string getApagar() const;

@@ -9,10 +9,10 @@ Persona::Persona(string d, string n, string t, string c) {
     correo = c;
 }
 
-string Persona::getDni() { return dni; }
-string Persona::getNombre() { return nombre; }
-string Persona::getTelefono() { return telefono; }
-string Persona::getCorreo() { return correo; }
+string Persona::getDni() const { return dni; }
+string Persona::getNombre() const { return nombre; }
+string Persona::getTelefono() const { return telefono; }
+string Persona::getCorreo() const { return correo; }
 
 
 void Persona::setDni(string d) { dni = d; }

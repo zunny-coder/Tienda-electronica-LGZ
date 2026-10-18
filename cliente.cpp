@@ -41,8 +41,8 @@ void Cliente::realizarPedido() {
 
 void Cliente::mostrarDatos() const {
     cout << "--- CLIENTE ---" << endl;
-    cout << "DNI: " << dni << endl;
-    cout << "Nombre: " << nombre << endl;
-    cout << "Telefono: " << telefono << endl;
-    cout << "Correo: " << correo << endl;
+    cout << "DNI: " << getDni() << endl;
+    cout << "Nombre: " << getNombre() << endl;
+    cout << "Telefono: " << getTelefono() << endl;
+    cout << "Correo: " << getCorreo() << endl;
 }

@@ -2,10 +2,10 @@
 #define PERIFERICO_H
 
 #include <string>
-#include "ProductoElectronico.h"
+#include "ProductosElectronicos.h"
 using namespace std;
 
-class Periferico : public ProductoElectronico {
+class Periferico : public ProductosElectronicos {
 private:
     string conexion;
     double consumoEnergia;

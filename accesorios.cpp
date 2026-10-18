@@ -1,8 +1,9 @@
 #include <iostream>
-#include "Accesorio.h"
+#include "accesorios.h"
 using namespace std;
 
-Accesorio::Accesorio(string t, int c, string cat, string col, string cal, string f) {
+Accesorio::Accesorio(string t, int c, string cat, string col, string cal, string f)
+    : Productos(0, "Accesorio", 0.0, 0, "", "", "", 0, "", 0) {
     tamano = t;
     cantidad = c;
     categoria = cat;
@@ -13,7 +14,7 @@ Accesorio::Accesorio(string t, int c, string cat, string col, string cal, string
 
 void Accesorio::Mostrar() const {
     cout << "--- ACCESORIO ---" << endl;
-    consultar();
+    cout << "Producto: " << getNombre() << " | Precio: " << getPrecio() << endl;
     cout << "Tamano: " << tamano << endl;
     cout << "Cantidad: " << cantidad << endl;
     cout << "Categoria: " << categoria << endl;
@@ -48,7 +49,7 @@ void Accesorio::Vender() {
         cout << "No hay suficiente stock. Disponible: " << cantidad << endl;
     } else {
         cantidad = cantidad - cantidadVenta;
-        cout << "Venta realizada. Total: " << calcularPrecio() * cantidadVenta << endl;
+        cout << "Venta realizada. Total: " << getPrecio() * cantidadVenta << endl;
         cout << "Quedan " << cantidad << " accesorios." << endl;
     }
 }

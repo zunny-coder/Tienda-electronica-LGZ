@@ -1,7 +1,7 @@
 #ifndef SOPORTE_H
 #define SOPORTE_H
 
-#include "Accesorio.h"
+#include "accesorios.h"
 
 class Soporte : public Accesorio {
 public:

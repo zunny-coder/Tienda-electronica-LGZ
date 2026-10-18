@@ -1,7 +1,7 @@
 #ifndef PROTECTOR_H
 #define PROTECTOR_H
 
-#include "Accesorio.h"
+#include "accesorios.h"
 
 class Protector : public Accesorio {
 public:

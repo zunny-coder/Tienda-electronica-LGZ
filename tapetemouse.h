@@ -1,7 +1,7 @@
 #ifndef TAPETEMOUSE_H
 #define TAPETEMOUSE_H
 
-#include "Accesorio.h"
+#include "accesorios.h"
 
 class TapeteMouse : public Accesorio {
 public:

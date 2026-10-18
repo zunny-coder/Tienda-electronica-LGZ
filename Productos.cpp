@@ -43,7 +43,7 @@ bool Productos::reducirStock(int cantidad) {
     return true;
 }
 
-void Productos::registrar(int codigo, int nombre, double precio, string marca, string modelo, int garantia) { 
+    void Productos::registrar(int codigo, string nombre, double precio, string marca, string modelo, int garantia) {
     cout << "    DATOS DEL PRODUCTO    " << endl;
     cout<< "  | Nombre: " << nombre << endl;
     cout<< "  | Código: " << codigo << endl;

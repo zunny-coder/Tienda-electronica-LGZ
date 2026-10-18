@@ -25,6 +25,14 @@ void Celular::tomarFoto() const {
     cout << "   Tomando foto..." << endl;
 }
 
-void Celular::configuracion() const {
-    cout << "   Configurando celular..." << endl;
+string Celular::getTipo() const {
+    return "Celular";
+}
+
+string Celular::getProcesador() const {
+    return procesador;
+}
+
+int Celular::getMemoriaRAM() const {
+    return memoriaRAM;
 }

@@ -18,7 +18,7 @@ protected:
     double peso;
 
 public:
-    Productos(int codigo, string nombre, double precio, int stock, string marca, string modelo, 
+    Productos(int codigo, string nombre, double precio, int stock, string marca, string modelo,
         string material, int garantia, string compatibilidad, double peso);
 
     virtual ~Productos() = default;
@@ -36,9 +36,9 @@ public:
 
     void setPrecio(double nuevoPrecio);
     bool reducirStock(int cantidad);
-    void Productos::registrar(int codigo);
-    void Productos::modificar(int nuevoProducto);
-    void Productos::consultar(int nombre);
+    void registrar(int codigo, string nombre, double precio, string marca, string modelo, int garantia);
+    void modificar(int nuevoProducto);
+    void consultar(int nombre);
 
     virtual string getTipo() const;
 };

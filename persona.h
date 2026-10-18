@@ -5,7 +5,7 @@
 using namespace std;
 
 class Persona {
-private:                       
+private:
     string dni;
     string nombre;
     string telefono;
@@ -14,23 +14,21 @@ private:
 public:
     Persona(string d, string n, string t, string c);
 
-   
-    string getDni();
-    string getNombre();
-    string getTelefono();
-    string getCorreo();
+    string getDni() const;
+    string getNombre() const;
+    string getTelefono() const;
+    string getCorreo() const;
 
-   
     void setDni(string d);
     void setNombre(string n);
     void setTelefono(string t);
     void setCorreo(string c);
 
-    
     virtual void mostrarDatos() const = 0;
 
-   
     virtual void actualizarDatos();
+
+    virtual ~Persona() = default;
 };
 
 #endif

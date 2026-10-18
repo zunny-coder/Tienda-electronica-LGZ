@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Funda.h"
+#include "funda.h"
 using namespace std;
 
 Funda::Funda(string t, int c, string col, string cal, string f)
