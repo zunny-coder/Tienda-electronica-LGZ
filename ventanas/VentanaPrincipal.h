@@ -10,6 +10,8 @@ class QStackedWidget;
 class QLabel;
 class QPushButton;
 class QTableWidget;
+class QLineEdit;
+class QSpinBox;
 
 class Productos;
 class Cliente;
@@ -45,6 +47,17 @@ private:
     QTableWidget *tablaClientes = nullptr;
     QTableWidget *tablaEmpleados = nullptr;
     QTableWidget *tablaProveedores = nullptr;
+
+    QWidget *crearPaginaVenta();
+    void registrarVenta();
+    void refrescarTablaProductos();
+    Productos *buscarProducto(int codigo) const;
+
+    std::vector<Productos*> listaProductos;
+    QLineEdit *ventaCodigo = nullptr;
+    QSpinBox *ventaCantidad = nullptr;
+    QLabel *ventaInfo = nullptr;
+    QLabel *ventaMensaje = nullptr;
 };
 
 #endif

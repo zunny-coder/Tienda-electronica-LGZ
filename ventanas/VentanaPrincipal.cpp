@@ -22,6 +22,8 @@
 #include <QDebug>
 #include <QImageReader>
 #include <QDir>
+#include <QSpinBox>
+#include <QIntValidator>
 
 #include "Productos.h"
 #include "cliente.h"
@@ -105,7 +107,8 @@ void VentanaPrincipal::crearInterfaz()
         "Productos",
         "Clientes",
         "Empleados",
-        "Proveedores"
+        "Proveedores",
+        "Vender"
     };
 
     for (int i = 0; i < nombres.size(); ++i) {
@@ -191,6 +194,8 @@ void VentanaPrincipal::crearInterfaz()
         {"DNI", "Nombre", "Telefono", "Correo", "RUC", "Codigo", "Stock"},
         tablaProveedores
     ));
+
+    paginas->addWidget(crearPaginaVenta());
 
     area->addWidget(paginas, 1);
 
@@ -360,11 +365,146 @@ QWidget *VentanaPrincipal::crearRecomendados()
     return fila;
 } 
 
+Productos *VentanaPrincipal::buscarProducto(int codigo) const
+{
+    for (Productos *p : listaProductos) {
+        if (p->getCodigo() == codigo) {
+            return p;
+        }
+    }
+    return nullptr;
+}
+
+QWidget *VentanaPrincipal::crearPaginaVenta()
+{
+    QWidget *pagina = new QWidget;
+
+    QVBoxLayout *layout = new QVBoxLayout(pagina);
+    layout->setContentsMargins(28, 24, 28, 24);
+    layout->setSpacing(16);
+
+    QLabel *encabezado = new QLabel("Vender");
+    encabezado->setObjectName("tituloPagina");
+
+    QLabel *detalle = new QLabel(
+        "Ingresa el codigo del producto y la cantidad para registrar la venta."
+    );
+    detalle->setObjectName("descripcion");
+    detalle->setWordWrap(true);
+
+    ventaCodigo = new QLineEdit;
+    ventaCodigo->setObjectName("busqueda");
+    ventaCodigo->setPlaceholderText("Codigo del producto...");
+    ventaCodigo->setValidator(new QIntValidator(0, 999999, ventaCodigo));
+
+    ventaCantidad = new QSpinBox;
+    ventaCantidad->setRange(1, 9999);
+    ventaCantidad->setValue(1);
+    ventaCantidad->setPrefix("Cantidad: ");
+    ventaCantidad->setMinimumHeight(43);
+
+    QPushButton *boton = new QPushButton("Registrar venta");
+    boton->setCursor(Qt::PointingHandCursor);
+    boton->setMinimumHeight(43);
+    boton->setStyleSheet(
+        "QPushButton { background-color: #d9457f; color: white; border: none;"
+        " border-radius: 10px; padding: 0 22px; font-weight: bold; }"
+        "QPushButton:hover { background-color: #e65a92; }"
+    );
+
+    QHBoxLayout *fila = new QHBoxLayout;
+    fila->setSpacing(12);
+    fila->addWidget(ventaCodigo, 1);
+    fila->addWidget(ventaCantidad);
+    fila->addWidget(boton);
+
+    ventaInfo = new QLabel;
+    ventaInfo->setObjectName("descripcion");
+
+    ventaMensaje = new QLabel;
+    ventaMensaje->setObjectName("etiquetaRosa");
+    ventaMensaje->setWordWrap(true);
+
+    connect(ventaCodigo, &QLineEdit::textChanged,
+            this, [this](const QString &texto) {
+                if (texto.isEmpty()) {
+                    ventaInfo->clear();
+                    return;
+                }
+
+                Productos *p = buscarProducto(texto.toInt());
+                if (p) {
+                    ventaInfo->setText(QString("%1  |  S/ %2  |  Stock: %3")
+                        .arg(QString::fromStdString(p->getNombre()))
+                        .arg(p->getPrecio(), 0, 'f', 2)
+                        .arg(p->getStock()));
+                } else {
+                    ventaInfo->setText("No existe un producto con ese codigo.");
+                }
+            });
+
+    connect(boton, &QPushButton::clicked,
+            this, [this]() { registrarVenta(); });
+    connect(ventaCodigo, &QLineEdit::returnPressed,
+            this, [this]() { registrarVenta(); });
+
+    layout->addWidget(encabezado);
+    layout->addWidget(detalle);
+    layout->addLayout(fila);
+    layout->addWidget(ventaInfo);
+    layout->addWidget(ventaMensaje);
+    layout->addStretch();
+
+    return pagina;
+}
+
+void VentanaPrincipal::registrarVenta()
+{
+    const QString texto = ventaCodigo->text().trimmed();
+
+    if (texto.isEmpty()) {
+        ventaMensaje->setText("Ingresa el codigo del producto.");
+        return;
+    }
+
+    Productos *p = buscarProducto(texto.toInt());
+    if (!p) {
+        ventaMensaje->setText("No existe un producto con el codigo " + texto + ".");
+        return;
+    }
+
+    const int cantidad = ventaCantidad->value();
+
+    if (!p->reducirStock(cantidad)) {
+        ventaMensaje->setText(QString("Stock insuficiente. Disponible: %1")
+                                  .arg(p->getStock()));
+        return;
+    }
+
+    ventaMensaje->setText(
+        QString("Venta registrada: %1 x %2 - Total S/ %3. Stock restante: %4")
+            .arg(cantidad)
+            .arg(QString::fromStdString(p->getNombre()))
+            .arg(p->getPrecio() * cantidad, 0, 'f', 2)
+            .arg(p->getStock()));
+
+    refrescarTablaProductos();
+    ventaCodigo->clear();
+    ventaCantidad->setValue(1);
+    ventaCodigo->setFocus();
+}
+
 void VentanaPrincipal::cargarProductos(const std::vector<Productos*> &lista)
+{
+    listaProductos = lista;
+    refrescarTablaProductos();
+}
+
+void VentanaPrincipal::refrescarTablaProductos()
 {
     tablaProductos->setRowCount(0);
 
-    for (Productos *p : lista) {
+    for (Productos *p : listaProductos) {
         agregarFila(tablaProductos, {
             QString::number(p->getCodigo()),
             QString::fromStdString(p->getNombre()),
@@ -435,9 +575,9 @@ void VentanaPrincipal::cambiarPagina(int indice)
 
     paginas->setCurrentIndex(indice);
 
-    const QStringList nombres = {
+        const QStringList nombres = {
         "Inicio", "Productos", "Clientes",
-        "Empleados", "Proveedores"
+        "Empleados", "Proveedores", "Vender"
     };
 
     tituloSeccion->setText(nombres[indice]);
