@@ -1,5 +1,4 @@
 # Tienda Electrónica LGZ
-
 ## Pasos para ejecutar el programa: 
 
 1. Descargar el instalador de Qt desde https://www.qt.io/download-open-source
@@ -16,14 +15,20 @@
 7. Ve a Archivo → Abrir carpeta... y selecciona la carpeta principal del proyecto (Tienda-electronica-LGZ-main).
 
 ## Compilación del Proyecto por Comandos
+**Nota importante de ubicación antes de compilar**
+**Para asegurar que CMake reconozca correctamente el proyecto, asegúrese de no cambiar el nombre de la carpeta descompromida ni colocar el código dentro de o como subcarpetas adicionales.**
+
 Para compilar el proyecto de forma rápida y segura desde la terminal integrada de VS Code, realiza lo siguiente:
 
 1. Abre la terminal integrada presionando las teclas Ctrl + ` (o ve a Terminal → Nueva terminal).
 2. Asegúrate de estar posicionado en la carpeta principal del proyecto y crea una carpeta de compilación ejecutando (por separado):
 
 mkdir build
+
 cd build
+
 cmake -G "MinGW Makefiles" -DCMAKE_PREFIX_PATH="C:/Qt/6.12.0/mingw_64" ..
+
 cmake --build .
  
 con esto deberia de generarse una carpeta llamada build, al tenerla ya en el explorador ejecutar: 
