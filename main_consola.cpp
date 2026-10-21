@@ -51,4 +51,4 @@ int main() {
         cout << "Sistema Operativo: " << smartwatch.getSistemaOperativo() << endl;
 
     return 0;
-}
+}|
