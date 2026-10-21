@@ -77,7 +77,7 @@ int main(int argc, char *argv[])
         new Smartwatches(5001, "Apple Watch SE", 1299.0, 9, "Deportivo", 32, true, 18, "watchOS"),
         new Smartwatches(5002, "Samsung Galaxy Watch 6", 1199.0, 11, "Deportivo", 16, true, 40, "Wear OS"),
         new Smartwatches(5003, "Huawei Watch Fit 3", 599.0, 14, "Fitness", 4, true, 240, "HarmonyOS"),
-        new Smartwatches(5004, "Xiaomi Watch 2", 549.0, 16, "Casual", 32, true, 65, "Wear OS")
+        new Smartwatches(5004, "Xiaomi Watch 2", 549.0, 16, "Casual", 32, true, 65, "Wear OS"),
      
                 // Fundas
         catalogo(new Funda("Grande", 20, "Negro", "Alta", "Rectangular"),
@@ -86,6 +86,10 @@ int main(int argc, char *argv[])
                  6002, "OtterBox Funda iPhone 14", 129.0, 15, "Funda"),
         catalogo(new Funda("Grande", 25, "Transparente", "Alta", "Rectangular"),
                  6003, "Samsung Funda Galaxy S23", 99.0, 20, "Funda"),
+        catalogo(new Funda("Pequeño", 10, "Rojo", "Media", "Rectangular"),
+                 6004, "Ringke Funda Moto G54", 69.0, 22, "Funda"),
+        catalogo(new Funda("Mediano", 18, "Rosa", "Baja", "Delgada"),
+                 6005, "Spigen Funda iPhone 13", 119.0, 14, "Funda"),
 
         // Audifonos
         catalogo(new Audifonos("Bluetooth", 0.5, 50),
@@ -93,7 +97,13 @@ int main(int argc, char *argv[])
         catalogo(new Audifonos("Cable 3.5mm", 0.1, 40),
                  7002, "Sony MDR-ZX110", 79.0, 30, "Audifonos"),
         catalogo(new Audifonos("Bluetooth", 0.4, 60),
-                 7003, "Xiaomi Redmi Buds 4", 119.0, 18, "Audifonos")
+                 7003, "Xiaomi Redmi Buds 4", 119.0, 18, "Audifonos"),
+        catalogo(new Audifonos("Bluetooth", 0.6, 80),
+                 7004, "Sony WH-CH520", 229.0, 12, "Audifonos"),
+        catalogo(new Audifonos("Inalámbrico TWS", 0.2, 30),
+                 7005, "JBL Wave Buds", 199.0, 20, "Audifonos"),
+        catalogo(new Audifonos("Bluetooth con Cancelación de Ruido", 0.8, 120),
+                 7006, "Anker Soundcore Life Q30", 349.0, 8, "Audifonos")
     };
 
     std::vector<Cliente*> clientes = {

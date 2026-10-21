@@ -309,7 +309,7 @@ QWidget *VentanaPrincipal::crearRecomendados()
         QString imagen;
     };
 
-    QString rutaBase = QCoreApplication::applicationDirPath() + "/../recursos/imagenes";
+    QString rutaBase = ":/recursos/imagenes";
 
     const QList<Item> items = {
         {"Samsung Galaxy A54", "S/ 1399.00", rutaBase + "/celular.jpg"},
