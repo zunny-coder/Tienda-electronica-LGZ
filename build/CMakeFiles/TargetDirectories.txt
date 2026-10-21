@@ -1,5 +1,0 @@
-D:/Tienda-Electronica-LGZ/build/CMakeFiles/TiendaElectronicaLGZ.dir
-D:/Tienda-Electronica-LGZ/build/CMakeFiles/edit_cache.dir
-D:/Tienda-Electronica-LGZ/build/CMakeFiles/rebuild_cache.dir
-D:/Tienda-Electronica-LGZ/build/CMakeFiles/TiendaElectronicaLGZ_autogen_timestamp_deps.dir
-D:/Tienda-Electronica-LGZ/build/CMakeFiles/TiendaElectronicaLGZ_autogen.dir

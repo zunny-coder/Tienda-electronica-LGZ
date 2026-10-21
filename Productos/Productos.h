@@ -16,6 +16,7 @@ protected:
     int garantia;
     string compatibilidad;
     double peso;
+    string categoriaCatalogo;
 
 public:
     Productos(int codigo, string nombre, double precio, int stock, string marca, string modelo,
@@ -33,6 +34,8 @@ public:
     int getGarantia() const;
     string getCompatibilidad() const;
     double getPeso() const;
+    void configurar(int codigo, string nombre, double precio, int stock, string categoria);
+    string getCategoria() const;
 
     void setPrecio(double nuevoPrecio);
     bool reducirStock(int cantidad);

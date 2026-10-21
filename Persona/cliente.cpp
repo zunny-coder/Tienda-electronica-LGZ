@@ -5,7 +5,6 @@ using namespace std;
 Cliente::Cliente(string d, string n, string t, string c)
     : Persona(d, n, t, c) {}
 
-
 void Cliente::comprar() {
     string producto;
     int cantidad;

@@ -11,6 +11,8 @@
 #include "proveedor.h"
 #include "Impresora.h"
 #include "Smartwatches.h"
+#include "Funda.h"
+#include "Audifonos.h"
 
 int main(int argc, char *argv[])
 {
@@ -21,6 +23,11 @@ int main(int argc, char *argv[])
 
     VentanaPrincipal ventana;
 
+        auto catalogo = [](Productos *p, int codigo, const std::string &nombre,
+                       double precio, int stock, const std::string &categoria) {
+        p->configurar(codigo, nombre, precio, stock, categoria);
+        return p;
+    };
         std::vector<Productos*> productos = {
         // Computadoras
         new Computadora(1001, "Dell Inspiron 3910", 2499.0, 6, "Intel i5", 8, 512,
@@ -72,6 +79,21 @@ int main(int argc, char *argv[])
         new Smartwatches(5003, "Huawei Watch Fit 3", 599.0, 14, "Fitness", 4, true, 240, "HarmonyOS"),
         new Smartwatches(5004, "Xiaomi Watch 2", 549.0, 16, "Casual", 32, true, 65, "Wear OS")
      
+                // Fundas
+        catalogo(new Funda("Grande", 20, "Negro", "Alta", "Rectangular"),
+                 6001, "Spigen Funda Galaxy A54", 59.0, 30, "Funda"),
+        catalogo(new Funda("Mediano", 15, "Azul", "Media", "Rectangular"),
+                 6002, "OtterBox Funda iPhone 14", 129.0, 15, "Funda"),
+        catalogo(new Funda("Grande", 25, "Transparente", "Alta", "Rectangular"),
+                 6003, "Samsung Funda Galaxy S23", 99.0, 20, "Funda"),
+
+        // Audifonos
+        catalogo(new Audifonos("Bluetooth", 0.5, 50),
+                 7001, "JBL Tune 510BT", 159.0, 25, "Audifonos"),
+        catalogo(new Audifonos("Cable 3.5mm", 0.1, 40),
+                 7002, "Sony MDR-ZX110", 79.0, 30, "Audifonos"),
+        catalogo(new Audifonos("Bluetooth", 0.4, 60),
+                 7003, "Xiaomi Redmi Buds 4", 119.0, 18, "Audifonos")
     };
 
     std::vector<Cliente*> clientes = {
@@ -92,9 +114,9 @@ int main(int argc, char *argv[])
     std::vector<Empleado*> empleados = {
         new Empleado("71162420", "Zunny Mamani", "917058536", "zunnymamani@est.unap.edu.pe", 7000.0, "Lun-Vie 11am-4pm", "Gerente"),
         new Empleado("73581649", "Lourdes Cabana", "963447086", "lourdescabana@est.unap.edu.pe", 5000.0, "Lun-Vie 8am-4pm", "Gerente"),
-        new Empleado("61152643", "Georgina Martinez", "950505307", "georginamar60tinez@est.unap.edu.pe", 5000.0, "Lun-Vie 8am-5pm", "Gerente"),
+        new Empleado("61152643", "Georgina Martinez", "950505307", "georginamartinez@est.unap.edu.pe", 5000.0, "Lun-Vie 8am-5pm", "Gerente"),
         new Empleado("60908881", "Crhristian Cutipa", "910514666", "christiancutipa@gmail.com", 1300.0, "Lun-Dom 8am-9pm", "Limpieza")
-    };
+    }; 
     std::vector<Proveedor*> proveedores = {
         new Proveedor("62878901", "TechSupply" , "987561209", "techsupply@gmail.com", "RUC4568890", 100, "PROV001"),
         new Proveedor("62878902", "ElectroWorld" , "987561210", "electroworld@gmail.com", "RUC4568891", 150, "PROV002")

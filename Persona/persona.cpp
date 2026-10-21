@@ -14,7 +14,6 @@ string Persona::getNombre() const { return nombre; }
 string Persona::getTelefono() const { return telefono; }
 string Persona::getCorreo() const { return correo; }
 
-
 void Persona::setDni(string d) { dni = d; }
 void Persona::setNombre(string n) { nombre = n; }
 void Persona::setTelefono(string t) { telefono = t; }

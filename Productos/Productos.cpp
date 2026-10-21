@@ -57,3 +57,15 @@ void Productos::consultar(int nombre) { cout << "Consultando producto: " << nomb
 
 
 string Productos::getTipo() const { return "Producto"; }
+
+void Productos::configurar(int codigo, string nombre, double precio, int stock, string categoria) {
+    this->codigo = codigo;
+    this->nombre = nombre;
+    this->precio = precio;
+    this->stock = stock;
+    this->categoriaCatalogo = categoria;
+}
+
+string Productos::getCategoria() const {
+    return categoriaCatalogo.empty() ? getTipo() : categoriaCatalogo;
+}
