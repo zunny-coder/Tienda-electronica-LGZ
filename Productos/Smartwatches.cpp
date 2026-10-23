@@ -45,10 +45,9 @@ void Smartwatches::hacerLlamadas() const {
 void Smartwatches::contarPasos() const {
     int pasos = 100;
     cout << "   La cantidad de pasos que dio en este recorrido es: ";
-    cin >> pasos;
     cout << pasos << endl;
 }
-void medirRitmoCardiaco() { 
-    double cardio;
-    cout<<" Ritmo cardiaco: "<<cardio<<endl; 
+void medirRitmoCardiaco() const { 
+    double cardio = 80;
+    cout<<" Ritmo cardiaco: "<<cardio<<" PPM"<<endl; 
 }
