@@ -25,7 +25,7 @@ public:
     void actualizarSistema() const;
     void hacerLlamadas() const;
     void contarPasos() const;
-    void medirRitmoCardiaco() const;
+
 };
 
 #endif // SMARTWATCHES_H
